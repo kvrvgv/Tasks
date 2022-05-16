@@ -9,9 +9,26 @@ INPUT = json.loads(file.read())
 file.close()
 
 while INPUT:
-    item = INPUT[0]
-    INPUT.remove(item)
+    iter = INPUT[0]
+    INPUT.remove(iter)
     try:
-        INPUT.remove(item)
+        INPUT.remove(iter)
     except:
-        print(item)
+        print(iter)
+
+
+# то же самое только нашел эту задачу в LeetCode
+# https://leetcode.com/problems/single-number/submissions/
+class Solution:
+    def singleNumber(self, nums: list[int]) -> int:
+        while nums:
+            iter = nums[0]
+            nums.remove(iter)
+            try:
+                nums.remove(iter)
+            except:
+                return iter
+
+
+obj1 = Solution()
+print(obj1.singleNumber(nums=[2, 2, 1]))
